@@ -1,0 +1,46 @@
+<h1 align="center">{{title}}</h1>
+<form [formGroup]="personForm" (ngSubmit)="onSubmitForm()">
+    <table align="center" border="2">
+
+        <tr>
+            <td><label for="id">ID</label></td>
+            <td>
+                <input type="text" formControlName="id" id="id" class="form-control" placeholder="ID">
+                <span class="error" *ngIf="personForm.get('id').invalid && personForm.get('id').touched">Id is required</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="firstName">First Name</label></td>
+            <td>
+                <input type="text" formControlName="firstName" id="firstName" class="form-control" placeholder="First Name">
+                <span class="error" *ngIf="personForm.get('firstName').invalid && personForm.get('firstName').touched">FirstName is required</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="lastName">Last Name</label></td>
+            <td>
+                <input type="text" formControlName="lastName" id="lastName" class="form-control" placeholder="Last Name">
+                <span class="error" *ngIf="personForm.get('lastName').invalid && personForm.get('lastName').touched">LastName is required</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td><label for="address">Address</label></td>
+            <td>
+                <input type="text" formControlName="address" id="address" class="form-control" placeholder="address">
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <button type="button" class="btn btn-primary" (click)="defaultPerson()">DefaultLoad</button>
+            </td>
+            <td>
+                <button type="submit" class="btn btn-primary">Submit</button> &nbsp; &nbsp;
+                <button type="button" class="btn btn-primary" (click)="resetForm()">Reset</button>
+            </td>
+        </tr>
+    </table>
+</form>
